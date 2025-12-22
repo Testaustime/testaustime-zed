@@ -1,0 +1,7 @@
+id = "testaustime"
+name = "Testaustime"
+version = "0.0.1"
+schema_version = 1
+authors = ["Midka <me@midka.dev>"]
+description = "A time tracker"
+repository = "https://codeberg.org/midka/testaustime-zed"
