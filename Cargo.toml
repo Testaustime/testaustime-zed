@@ -1,11 +1,19 @@
 [package]
 name = "testaustime"
-version = "0.1.0"
+version.workspace = true
 edition = "2024"
 license = "MIT"
+repository = "https://codeberg.org/midka/testaustime-zed"
+
+[workspace.package]
+version = "0.0.1"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
 zed_extension_api  = "0.7.0"
+testaustime_shared = { path = "./shared" }
+
+[workspace]
+members = ["shared","testaustime-ls"]

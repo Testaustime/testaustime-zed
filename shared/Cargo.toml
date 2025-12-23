@@ -1,0 +1,8 @@
+[package]
+name = "testaustime_shared"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0.228", features = ["derive"] }
