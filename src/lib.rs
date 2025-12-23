@@ -76,10 +76,11 @@ impl TestaustimeExtension {
 
             for entry in entries {
                 let entry = entry.map_err(|err| format!("failed to load directory entry {err}"))?;
-                if let Some(file_name) = entry.file_name().to_str() {
-                    if file_name.starts_with("testaustime-ls") && file_name != version_dir {
-                        fs::remove_dir_all(entry.path()).ok();
-                    }
+                if let Some(file_name) = entry.file_name().to_str()
+                    && file_name.starts_with("testaustime-ls")
+                    && file_name != version_dir
+                {
+                    fs::remove_dir_all(entry.path()).ok();
                 }
             }
         }
@@ -105,10 +106,10 @@ impl TestaustimeExtension {
         }
 
         // check cache
-        if let Some(path) = &self.cached_binary_path {
-            if fs::metadata(path).is_ok_and(|stat| stat.is_file()) {
-                return Ok(path.clone());
-            }
+        if let Some(path) = &self.cached_binary_path
+            && fs::metadata(path).is_ok_and(|stat| stat.is_file())
+        {
+            return Ok(path.clone());
         }
 
         // download
